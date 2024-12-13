@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'sevenSegment';
+  src: url('/Font/7segment.ttf') format('truetype');
+}
