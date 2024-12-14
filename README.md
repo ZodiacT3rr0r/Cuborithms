@@ -1,12 +1,10 @@
-# Project Title
-
-Cuborithms
+# <p align="center" style="font-size: 2em; font-weight: bold;">Cuborithms</p>
 
 ---
 
 ## 🚀 Overview
 
-This is a **ReactJS** and **Tailwind CSS** project for building modern, responsive, and visually appealing web applications. It features animations powered by [Framer Motion](https://www.framer.com/motion/) for smooth UI transitions and effects.
+**Cuborithms** is a website designed to help you **learn cubing**, **time yourself**, and **practice algorithms**. Whether you're solving a Rubik's cube for the first time or improving your speed-solving techniques, Cuborithms offers a user-friendly interface to enhance your cubing journey.
 
 ---
 
@@ -60,11 +58,3 @@ npm run build
 ```
 
 ---
-
-
-## 📝 License
-
-This project is open-source and available under the [MIT License](LICENSE).
-
----
-
