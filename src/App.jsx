@@ -1,4 +1,5 @@
 import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom'
+import Background from './background/Background'
 import Navbar from './Navbar'
 import Home from './Home'
 import About from './About'
@@ -52,7 +53,8 @@ function App() {
   )
 
   return (
-    <div className="min-h-screen bg-fixed bg-gray-700">
+    <div className="min-h-screen">
+      <Background />
       <RouterProvider router={router} />
     </div>
   )

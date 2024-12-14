@@ -1,7 +1,6 @@
 import { NavLink, Outlet } from "react-router-dom";
 import IMAGES from "./IMAGES";
 import { useState } from "react";
-import background from "./background/background";
 
 const Navbar = () => {
 
@@ -93,7 +92,6 @@ const Navbar = () => {
       </header>
 
       <main className="flex-grow pt-16 overflow-auto">
-        <background />
         <Outlet />
       </main>
     </div>
