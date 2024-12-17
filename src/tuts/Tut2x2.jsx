@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 const Tut2x2 = () => {
   return ( 
-    <div className="w-1/2 mx-auto text-center pb-48 z-1">
+    <div className="w-1/2 mx-auto text-center pb-48 z-1 text-white">
       <div className="border-y border-y-cyan-400 text-5xl my-8 p-2 font-semibold text-orange-400">How to solve a 2x2!</div>
       <div className="mx-auto text-xl text-white">We dont need any specific algorithms to learn the basic method. All you need is to learn this 4 move sequence known as the <span className="font-bold">Sexy Move</span></div>
       <div className="flex justify-center my-8 border border-orange-400">

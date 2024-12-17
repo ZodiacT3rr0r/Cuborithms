@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
-import algorithms from '../PLL-adv-algs';
+import algorithms from '../data-algs/PLL-adv-algs';
 
 function PLLtrainer() {
   const [time, setTime] = useState(0);
   const [isActive, setIsActive] = useState(false);
   const [algIndex, setAlgIndex] = useState(Math.floor(Math.random() * algorithms.length));
   const [currentAlgorithm, setCurrentAlgorithm] = useState(algorithms[algIndex]);
-  const [color, setColor] = useState('text-black');
+  const [color, setColor] = useState('text-white');
   const [ready, setReady] = useState(false);
   const [recordedTimes, setRecordedTimes] = useState([]);
   const setGreenRef = useRef(null);
@@ -40,7 +40,7 @@ function PLLtrainer() {
       setIsActive((prevIsActive) => {
         if (prevIsActive) {
           setReady(false);
-          setColor('text-black');
+          setColor('text-white');
           window.addEventListener('keydown', handleColor);
         }
         return !prevIsActive;
@@ -89,7 +89,7 @@ function PLLtrainer() {
           console.log(isActive, ready);
         }, 10);
       } else {
-        setColor('text-black');
+        setColor('text-white');
         setIsActive(!isActive);
         window.addEventListener('keydown', handleColor);
       }
@@ -144,7 +144,7 @@ function PLLtrainer() {
               </thead>
               <tbody>
                 <tr>
-                  <th className=''>current</th>
+                  <th className='text-white'>current</th>
                   <td className=' text-center'>{recordedTimes.length > 0 && !(formatTime(time) == '0:00')? isActive || formatTime(time) : '--'}</td>
                 </tr>
                 <tr>

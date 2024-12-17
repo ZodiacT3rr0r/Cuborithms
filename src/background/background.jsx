@@ -152,7 +152,7 @@ const BEAM_WIDTH_OFFSET = 1;
 
 const Background = () => {
   return (
-    <section className="absolute inset-0 -z-10 overflow-hidden bg-zinc-950">
+    <section className="absolute inset-0 -z-10 overflow-hidden bg-zinc-950 -top-1">
       <Beams />
       <GradientGrid />
     </section>

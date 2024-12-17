@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
-import algorithms from '../PLL-adv-algs';
+import algorithms from '../data-algs/PLL-adv-algs';
 
 function PLLtrainer() {
   const [time, setTime] = useState(0);
   const [isActive, setIsActive] = useState(false);
   const [algIndex, setAlgIndex] = useState(Math.floor(Math.random() * algorithms.length));
   const [currentAlgorithm, setCurrentAlgorithm] = useState(algorithms[algIndex]);
-  const [color, setColor] = useState('text-black');
+  const [color, setColor] = useState('text-white');
   const [ready, setReady] = useState(false);
   const [recordedTimes, setRecordedTimes] = useState([]);
   const setGreenRef = useRef(null);
@@ -35,7 +35,7 @@ function PLLtrainer() {
     if (setGreenRef.current) {
       clearTimeout(setGreenRef.current);
     }
-    setColor('text-black');
+    setColor('text-white');
     if (event.code === 'Space') {
       setIsActive((prevIsActive) => {
         if (prevIsActive) {
@@ -88,7 +88,7 @@ function PLLtrainer() {
           console.log(isActive, ready);
         }, 10);
       } else {
-        setColor('text-black');
+        setColor('text-white');
         setIsActive(!isActive);
         window.addEventListener('keydown', handleColor);
       }
@@ -137,23 +137,23 @@ function PLLtrainer() {
             <table className='w-2/3 mx-auto'>
               <thead>
                 <tr>
-                  <th className='cursor-pointer' onClick={()=>{localStorage.removeItem('recordedTimes');setRecordedTimes([])}}>Reset</th>
-                  <th className=''>time</th>
+                  <th className='text-white cursor-pointer' onClick={()=>{localStorage.removeItem('recordedTimes');setRecordedTimes([])}}>Reset</th>
+                  <th className='text-white'>time</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <th className=''>current</th>
-                  <td className=' text-center'>{recordedTimes.length > 0 && !(formatTime(time) == '0:00')? isActive || formatTime(time) : '--'}</td>
+                  <th className='text-white'>current</th>
+                  <td className='text-white text-center'>{recordedTimes.length > 0 && !(formatTime(time) == '0:00')? isActive || formatTime(time) : '--'}</td>
                 </tr>
                 <tr>
-                  <th className=''>best</th>
-                  <td className=' text-center'>{bestTime()}</td>
+                  <th className='text-white'>best</th>
+                  <td className='text-white text-center'>{bestTime()}</td>
                 </tr>
                 {1 &&
                   <tr>
-                    <th className=''>avg</th>
-                    <td className=' text-center'>{avgTime()}</td>
+                    <th className='text-white'>avg</th>
+                    <td className='text-white text-center'>{avgTime()}</td>
                   </tr>
                 }
               </tbody>
