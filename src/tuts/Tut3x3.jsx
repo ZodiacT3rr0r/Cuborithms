@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 const Tut3x3 = () => {
   return ( 
-    <div className="w-1/2 mx-auto text-center pb-48">
+    <div className="w-1/2 mx-auto text-center pb-48 text-white">
       <div className="border-y border-y-cyan-400 text-5xl my-8 p-2 font-semibold text-orange-400">How to solve a 3x3!</div>
       <div className="mx-auto text-xl text-white">We dont need to many algorithms to learn for the beginner's tutorial. If you know how to solve the 2x2, you will know how to solve some parts of the cube. Even if you dont know, this tutorial will teach you how to solve a 3x3.</div>
       <div className="mx-auto text-xl mt-4 text-white">For now you only need to learn what are the Sexy and Unsexy moves and learning the <NavLink to="/notations" className="text-blue-600 underline">Move Notations</NavLink> would be adviced but not necessary for the beginners tutorial</div>
