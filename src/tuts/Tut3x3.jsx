@@ -32,19 +32,19 @@ const Tut3x3 = () => {
       <div className="flex justify-center mt-8 border border-orange-400">
         <div>
           <img className="w-28" src="/Images/3x3tut/3x3sexy1L.png" alt="Visual representation of cube with R move" />
-          <div className="font-bold">Start state - R</div>
+          <div className="font-bold">Start state - L'</div>
         </div>
         <div>
           <img className="w-28" src="/Images/3x3tut/3x3sexy2L.png" alt="Visual representation of cube with U move" />
-          <div className="font-bold">U</div>
+          <div className="font-bold">U'</div>
         </div>
         <div>
           <img className="w-28" src="/Images/3x3tut/3x3sexy3L.png" alt="Visual representation of cube with R' move" />
-          <div className="font-bold">R'</div>
+          <div className="font-bold">L</div>
         </div>
         <div>
           <img className="w-28" src="/Images/3x3tut/3x3sexy4L.png" alt="Visual representation of cube with U' move" />
-          <div className="font-bold">U'</div>
+          <div className="font-bold">U</div>
         </div>
         <div>
           <img className="w-28" src="/Images/3x3tut/3x3sexy5L.png" alt="Visual representation of cube with U' move" />
