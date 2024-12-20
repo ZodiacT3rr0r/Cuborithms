@@ -130,37 +130,35 @@ function PLLtrainer() {
   };
 
   return (
-    <div className='min-h-[90vh] flex'>
+    <div className='min-h-[90vh] flex text-white'>
       <div className='border border-yellow-500 m-auto w-5/6 min-h-[80vh] flex'>
         <div className='border-r-yellow-500 border-r w-1/3'>
           <div>
             <table className='w-2/3 mx-auto'>
               <thead>
                 <tr>
-                  <th className='text-white cursor-pointer' onClick={()=>{localStorage.removeItem('recordedTimes');setRecordedTimes([])}}>Reset</th>
-                  <th className='text-white'>time</th>
+                  <th className=' cursor-pointer' onClick={()=>{localStorage.removeItem('recordedTimes');setRecordedTimes([])}}>Reset</th>
+                  <th>time</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <th className='text-white'>current</th>
-                  <td className='text-white text-center'>{recordedTimes.length > 0 && !(formatTime(time) == '0:00')? isActive || formatTime(time) : '--'}</td>
+                  <th >current</th>
+                  <td className=' text-center'>{recordedTimes.length > 0 && !(formatTime(time) == '0:00')? isActive || formatTime(time) : '--'}</td>
                 </tr>
                 <tr>
-                  <th className='text-white'>best</th>
-                  <td className='text-white text-center'>{bestTime()}</td>
+                  <th >best</th>
+                  <td className=' text-center'>{bestTime()}</td>
                 </tr>
-                {1 &&
-                  <tr>
-                    <th className='text-white'>avg</th>
-                    <td className='text-white text-center'>{avgTime()}</td>
-                  </tr>
-                }
+                <tr>
+                  <th >avg</th>
+                  <td className=' text-center'>{avgTime()}</td>
+                </tr>
               </tbody>
             </table>
             <div className='flex flex-wrap justify-center'>
               {recordedTimes.map((t, index) => (
-                <div className='bg-black text-white cursor-pointer border rounded-sm w-10 h-6 text-center m-2'>{t}</div>
+                <div className='bg-black cursor-pointer border rounded-sm w-10 h-6 text-center m-2'>{t}</div>
               ))}
             </div>
           </div>
@@ -168,7 +166,7 @@ function PLLtrainer() {
         <div className='w-full min-h-[80vh]'>
           <div className='flex border-b border-b-yellow-500 justify-center pb-3 p-2'>
             {currentAlgorithm &&
-              <div className='flex text-white justify-center items-center'>
+              <div className='flex justify-center items-center'>
                 <div className='text-5xl cursor-pointer' onClick={prevAlg}>&#x25B2;</div>
                 <div className='text-3xl mx-4'>{currentAlgorithm.algorithm}</div>
                 <div className='text-5xl cursor-pointer' onClick={produceAlgorithm}>&#x25BC;</div>
