@@ -1,0 +1,32 @@
+const algorithms = [
+  { name: "H1", group: "H", algorithm: "R U R' U R U' R' U R U2 R'", bestTime: null, avgTime: null },
+  { name: "H2", group: "H", algorithm: "F R U' R' U R U2 R' U' R U R' U' F'", bestTime: null, avgTime: null },
+  { name: "H3", group: "H", algorithm: "R U R' U R U L' U R' U' L", bestTime: null, avgTime: null },
+  { name: "H4", group: "H", algorithm: "F R U R' U' R U R' U' R U R' U' F'", bestTime: null, avgTime: null },
+  { name: "L1", group: "L", algorithm: "R' U2 R U R' U' R U R' U' R U R' U R", bestTime: null, avgTime: null },
+  { name: "L2", group: "L", algorithm: "R' U2 R' D' R U2 R' D R2", bestTime: null, avgTime: null },
+  { name: "L3", group: "L", algorithm: "R U2 R D R' U2 R D' R2", bestTime: null, avgTime: null },
+  { name: "L4", group: "L", algorithm: "F R' F' r U R U' r'", bestTime: null, avgTime: null },
+  { name: "L5", group: "L", algorithm: "x R' U R D' R' U' R D", bestTime: null, avgTime: null },
+  { name: "L6", group: "L", algorithm: "R' U' R U R' F' R U R' U' R' F R2", bestTime: null, avgTime: null },
+  { name: "P1", group: "Pi", algorithm: "R U2 R2 U' R2 U' R2 U2 R", bestTime: null, avgTime: null },
+  { name: "P2", group: "Pi", algorithm: "R' F2 R U2 R U2 R' F2 U' R U' R'", bestTime: null, avgTime: null },
+  { name: "P3", group: "Pi", algorithm: "R' U' F' R U R' U' R' F R2 U2 R' U2 R", bestTime: null, avgTime: null },
+  { name: "P4", group: "Pi", algorithm: "R U R' U' R' F R2 U R' U' R U R' U' F'", bestTime: null, avgTime: null },
+  { name: "P5", group: "Pi", algorithm: "R U' L' U R' U L U L' U L", bestTime: null, avgTime: null },
+  { name: "P6", group: "Pi", algorithm: "R2 D' R U R' D R U R U' R' U R U R' U R", bestTime: null, avgTime: null },
+  { name: "T1", group: "T", algorithm: "R U2 R' U' R U' R2 U2 R U R' U R", bestTime: null, avgTime: null },
+  { name: "T2", group: "T", algorithm: "R' U R U2 R' L' U R U' L", bestTime: null, avgTime: null },
+  { name: "T3", group: "T", algorithm: "l' U' L U l F' L' F", bestTime: null, avgTime: null },
+  { name: "T4", group: "T", algorithm: "F R U R' U' R U' R' U' R U R' F'", bestTime: null, avgTime: null },
+  { name: "T5", group: "T", algorithm: "r U R' U' r' F R F'", bestTime: null, avgTime: null },
+  { name: "T6", group: "T", algorithm: "R' U R2 D r' U2 r D' R2 U' R", bestTime: null, avgTime: null },
+  { name: "U1", group: "U", algorithm: "R' U' R U' R' U2 R2 U R' U R U2 R'", bestTime: null, avgTime: null },
+  { name: "U2", group: "U", algorithm: "R' F R U' R' U' R U R' F' R U R' U' R' F R F' R", bestTime: null, avgTime: null },
+  { name: "U3", group: "U", algorithm: "R2 D R' U2 R D' R' U2 R'", bestTime: null, avgTime: null },
+  { name: "U4", group: "U", algorithm: "F R U' R' U R U R' U R U' R' F'", bestTime: null, avgTime: null },
+  { name: "U5", group: "U", algorithm: "R2 D' R U2 R' D R U2 R", bestTime: null, avgTime: null },
+  { name: "U6", group: "U", algorithm: "R2 D' R U R' D R U R U' R' U' R", bestTime: null, avgTime: null }
+];
+
+export default algorithms;

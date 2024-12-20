@@ -51,7 +51,7 @@ const Navbar = () => {
                 Other Tutorials
               </div>
               <Link to="/notations" className="text-white">Notations</Link>
-              <Link to="/2x2-advanced" className="text-white">2x2 Advanced (Ortega)</Link>
+              <Link to="/2x2-advanced" className="text-white">2x2 Advanced</Link>
             </div>
             <div className="w-1/2">
               <div className="bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-orange-400 w-min">
