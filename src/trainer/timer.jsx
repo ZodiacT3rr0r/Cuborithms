@@ -8,6 +8,8 @@ const Timer = ({ algorithms, hint }) => {
   const [ready, setReady] = useState(false);
   const [recordedTimes, setRecordedTimes] = useState([]);
   const [previousScramble, setPreviousScramble] = useState(null); // Track the last scramble
+  const [showCase, setShowCase] = useState(false);
+  const [showSolution, setShowSolution] = useState(false);
   const setGreenRef = useRef(null);
 
   const produceScramble = () => {
@@ -70,22 +72,19 @@ const Timer = ({ algorithms, hint }) => {
 
   const reverseScramble = (scramble) => {
     const moves = scramble.split(' ');
-  
+
     const reversedMoves = moves.reverse().map((move) => {
       if (move.endsWith("'")) {
-        // Convert F' to F
         return move.slice(0, -1);
       } else if (move.endsWith('2')) {
-        // Keep R2 as is
         return move;
       } else {
-        // Convert F to F'
         return move + "'";
       }
     });
-  
+
     return reversedMoves.join(' ');
-  }
+  };
 
   const handleColor = (event) => {
     if (event.code === 'Space') {
@@ -119,27 +118,27 @@ const Timer = ({ algorithms, hint }) => {
     const [seconds, milliseconds] = timeString.split(':').map(Number);
     return seconds * 1000 + milliseconds * 10;
   };
-  
+
   const numTimeToStringTime = (ms) => {
-    const sec = Math.floor(ms/1000);
-    const millisec = Math.floor((ms%1000)/10);
+    const sec = Math.floor(ms / 1000);
+    const millisec = Math.floor((ms % 1000) / 10);
     const stringTime = sec + ":" + millisec;
     return stringTime;
   };
 
   const bestTime = () => {
-    if (!recordedTimes.length) 
-      return '--';
-    return numTimeToStringTime(Math.min(...recordedTimes.map(stringTimeToNumTime)))
-  }
+    if (!recordedTimes.length) return '--';
+    return numTimeToStringTime(Math.min(...recordedTimes.map(stringTimeToNumTime)));
+  };
 
   const avgTime = () => {
-    if(!recordedTimes.length)
-      return '--';
+    if (!recordedTimes.length) return '--';
     var sum = 0;
-    recordedTimes.map((stringTime) => {sum+=stringTimeToNumTime(stringTime)});
-    return numTimeToStringTime(Math.floor(sum/recordedTimes.length));
-  }
+    recordedTimes.map((stringTime) => {
+      sum += stringTimeToNumTime(stringTime);
+    });
+    return numTimeToStringTime(Math.floor(sum / recordedTimes.length));
+  };
 
   useEffect(() => {
     let interval = null;
@@ -148,7 +147,6 @@ const Timer = ({ algorithms, hint }) => {
         setTime(0);
         interval = setInterval(() => {
           setTime((prevTime) => prevTime + 10);
-          console.log(isActive, ready);
         }, 10);
       } else {
         setColor('text-white');
@@ -172,14 +170,14 @@ const Timer = ({ algorithms, hint }) => {
   useEffect(() => {
     const storedTimes = JSON.parse(localStorage.getItem('recordedTimes')) || [];
     setRecordedTimes(storedTimes);
-    
+
     window.addEventListener('keydown', handleColor);
     window.addEventListener('keyup', handleSpaceBar);
 
     return () => {
       window.removeEventListener('keyup', handleSpaceBar);
       window.removeEventListener('keydown', handleColor);
-      
+
       if (setGreenRef.current) {
         clearTimeout(setGreenRef.current);
       }
@@ -197,24 +195,36 @@ const Timer = ({ algorithms, hint }) => {
       <div className='border border-yellow-500 m-auto w-5/6 min-h-[80vh] flex'>
         <div className='border-r-yellow-500 border-r w-1/3'>
           <div>
-          <table className='w-2/3 mx-auto'>
+            <table className='w-2/3 mx-auto'>
               <thead>
                 <tr>
-                  <th className=' cursor-pointer' onClick={()=>{localStorage.removeItem('recordedTimes');setRecordedTimes([])}}>Reset</th>
+                  <th
+                    className=' cursor-pointer'
+                    onClick={() => {
+                      localStorage.removeItem('recordedTimes');
+                      setRecordedTimes([]);
+                    }}
+                  >
+                    Reset
+                  </th>
                   <th>time</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <th >current</th>
-                  <td className=' text-center'>{recordedTimes.length > 0 && !(formatTime(time) == '0:00')? isActive || formatTime(time) : '--'}</td>
+                  <th>current</th>
+                  <td className=' text-center'>
+                    {recordedTimes.length > 0 && !(formatTime(time) == '0:00')
+                      ? isActive || formatTime(time)
+                      : '--'}
+                  </td>
                 </tr>
                 <tr>
-                  <th >best</th>
+                  <th>best</th>
                   <td className=' text-center'>{bestTime()}</td>
                 </tr>
                 <tr>
-                  <th >avg</th>
+                  <th>avg</th>
                   <td className=' text-center'>{avgTime()}</td>
                 </tr>
               </tbody>
@@ -222,27 +232,51 @@ const Timer = ({ algorithms, hint }) => {
           </div>
         </div>
         <div className='w-full min-h-[80vh]'>
-          {!isActive &&
+          {!isActive && (
             <div className='flex border-b border-b-yellow-500 justify-center pb-3 p-2'>
               <div className='flex justify-center items-center'>
-                <div className='text-5xl cursor-pointer' onClick={handlePreviousScramble}>&#x25B2;</div>
-                <div className='text-3xl mx-4'>{algorithms ? reverseScramble(scramble.algorithm) : scramble}</div>
-                <div className='text-5xl cursor-pointer' onClick={handleNextScramble}>&#x25BC;</div>
+                <div className='text-5xl cursor-pointer' onClick={handlePreviousScramble}>
+                  &#x25B2;
+                </div>
+                <div className='text-3xl mx-4'>
+                  {algorithms ? reverseScramble(scramble.algorithm) : scramble}
+                </div>
+                <div className='text-5xl cursor-pointer' onClick={handleNextScramble}>
+                  &#x25BC;
+                </div>
               </div>
             </div>
-          }
-          <div className={`min-h-[71vh] flex justify-center items-center text-8xl font-segment7 ${color}`}>
+          )}
+          <div
+            className={`min-h-[71vh] flex justify-center items-center text-8xl font-segment7 ${color}`}
+          >
             {formatTime(time)}
           </div>
         </div>
-        {hint && 
+        {hint && (
           <div className='border-l-yellow-500 border-l w-1/4'>
-            <h2>Hint column</h2>
+            <h2 className='text-center font-bold text-lg'>Hint Section</h2>
+            <div className='flex flex-col items-center'>
+              <button
+                className='bg-blue-500 text-white px-4 py-2 rounded m-2'
+                onClick={() => setShowCase((prev) => !prev)}
+              >
+                {showCase ? 'Hide Case' : 'Show Case'}
+              </button>
+              {showCase && <p className='text-center'>Case: {scramble.name}, {scramble.shape}</p>}
+              <button
+                className='bg-green-500 text-white px-4 py-2 rounded m-2'
+                onClick={() => setShowSolution((prev) => !prev)}
+              >
+                {showSolution ? 'Hide Solution' : 'Show Solution'}
+              </button>
+              {showSolution && <p className='text-center'>Solution: {algorithms ? algorithms[algIndex].algorithm : 'N/A'}</p>}
+            </div>
           </div>
-        }
+        )}
       </div>
     </div>
   );
-}
+};
 
 export default Timer;
