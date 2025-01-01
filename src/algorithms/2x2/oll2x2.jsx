@@ -1,6 +1,11 @@
+import AlgSkeleton from "../algs";
+import algorithms from "../../data-algs/OLL-2X2"
+
 const OLL2X2 = () => {
   return ( 
-    <div>2x2 OLL Algs</div>
+    <div>
+      <AlgSkeleton algorithms={algorithms} path={"/Images/2x2OLL/"} imgnum={1}/>
+    </div>
   );
 }
  

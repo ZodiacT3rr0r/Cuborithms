@@ -1,6 +1,11 @@
+import AlgSkeleton from "../algs";
+import algorithms from "../../data-algs/PLL-adv-algs"
+
 const AdvPLL = () => {
   return ( 
-    <div>Advance PLL</div>
+    <div>
+      <AlgSkeleton algorithms={algorithms} path={"/Images/fullPLL/"} imgnum={1}/>
+    </div>
   );
 }
  
